@@ -6,6 +6,13 @@ class State(ENUM):
     INTER = 2
     FINAL = 3
 
+class Node():
+    def init(self, char, parent, state:State=State.NORMAL): 
+        self.char = char
+        self.parent = parent 
+        self.state = state
+        self.children = []
+
 def trie (patterns:str):
     node_0 = Node('', None, State.INIT)
     for pattern in patterns:
@@ -30,11 +37,3 @@ def build_trie(node:Node, pattern:str):
     child.state = State.FINAL
             
 
-
-
-class Node():
-    def init(self, char, parent, state:State=State.NORMAL): 
-        self.char = char
-        self.parent = parent 
-        self.state = state
-        self.children = []
